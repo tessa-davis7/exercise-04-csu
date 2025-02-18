@@ -20,31 +20,31 @@ knitr::opts_chunk$set(message = FALSE, warning = FALSE)
 
 ## Objectives:
 
-- Fork a Github Repo
-- Meet Quarto 
-- See some basic data
+-   Fork a Github Repo
+-   Meet Quarto
+-   See some basic data
 
 ## Your Assignment:
 
-1. Read though this document in both rendered and raw `.qmd` to review Quarto syntax.
-2. Change the author in the YML to your name
-2. Modify the city threshold to 100,000 (no comma!!)
-3. Re-knit the document
-4. From the knit document, right click on the final map image and save it to the `img` directory.
-5. Push your changes back to your repo
-6. Submit the URL to your repo and the saved image to the Canvas Dropbox.
+1.  Read though this document in both rendered and raw `.qmd` to review Quarto syntax.
+2.  Change the author in the YML to your name
+3.  Modify the city threshold to 100,000 (no comma!!)
+4.  Re-knit the document
+5.  From the knit document, right click on the final map image and save it to the `img` directory.
+6.  Push your changes back to your repo
+7.  Submit the URL to your repo and the saved image to the Canvas Dropbox.
 
 ## Data: USA Cites
 
 Accessed 01/28/2025 from: [Simplemaps](https://simplemaps.com/data/us-cities)
 
-:::{.callout-note}
-In your rendered document, this is a call out!. **Note** both the notation for this, and the hyperlink notation for the Simple maps link above 
+::: callout-note
+In your rendered document, this is a call out!. **Note** both the notation for this, and the hyperlink notation for the Simple maps link above
 :::
 
 # What is Quarto:
 
-Quarto provides an unified authoring framework for data science, combining  code, results, and commentary. Quarto documents are fully reproducible and support dozens of output formats, like PDFs, Word files, slideshows, and more.
+Quarto provides an unified authoring framework for data science, combining code, results, and commentary. Quarto documents are fully reproducible and support dozens of output formats, like PDFs, Word files, slideshows, and more.
 
 ```{r}
 #| echo: false
@@ -56,14 +56,15 @@ knitr::include_graphics('../img/quartoflow.png')
 
 A `.qmd` file contains three important types of content:
 
-1. An (optional) YAML header surrounded by `---`s which defines the: 
- - Output type
- - theme
- - metadata (author/date/title. subtitle)
- 
-2. Text mixed with simple text formatting like # heading and _italics_.
+1.  An (optional) YAML header surrounded by `---`s which defines the:
 
-3. Chunks of code surrounded by ```.
+-   Output type
+-   theme
+-   metadata (author/date/title. subtitle)
+
+2.  Text mixed with simple text formatting like \# heading and *italics*.
+
+3.  Chunks of code surrounded by \`\`\`.
 
 # How do I make this thing run?
 
@@ -77,19 +78,19 @@ or the `Render` button above.
 
 The document will knit to the same directory as the `.qmd` in the format defined.
 
-Click the settings (wheel) icon next to `knit` to render the output document in a new window (Preview in Window) or in the RStudio Viewer Pane
-(Preview in Viewer Pane). Choose the second for now!
+Click the settings (wheel) icon next to `knit` to render the output document in a new window (Preview in Window) or in the RStudio Viewer Pane (Preview in Viewer Pane). Choose the second for now!
 
 ## YMAL
 
-```yaml
+``` yaml
 ---
 title: "My First Quarto Document"
-author: "Your Name"
+author: "Tessa Davis"
 date: today
 format: html
 ---
 ```
+
 ## Quarto formatting basics
 
 ### Block Quote:
@@ -97,26 +98,30 @@ format: html
 > Quarto provides an authoring framework for data science. You can use a single R Markdown file to both
 
 # Header 1 (H1)
+
 ## Header 2 (H2)
+
 ### Header 2 (H3)
+
 #### Header 4 (H4)
+
 ##### Header 5 (H5)
 
-- a bulletpointed
-- list of 
-- things
-  - and
-  - smaller
-  - things
+-   a bulletpointed
+-   list of
+-   things
+    -   and
+    -   smaller
+    -   things
 
-1. Or a 
-2. numbered list
-3. of things
-    a. Maybe with some nested sections
-    b. like this
-4. Then something else...
+1.  Or a
+2.  numbered list
+3.  of things
+    a.  Maybe with some nested sections
+    b.  like this
+4.  Then something else...
 
-I can make something **bold** with double asterisk(\*), or *italicized* with single asterisks. 
+I can make something **bold** with double asterisk(\*), or *italicized* with single asterisks.
 
 Make something superscripted^UP^ or subscripted~DOWN~
 
@@ -124,11 +129,11 @@ I can add a regular hyperlink by just writing the URL: https://github.com/mikejo
 
 Or I can have [linked text](https://github.com/mikejohnson51/csu-ess-330).
 
-I can add an image: 
+I can add an image:
 
 ![Here's a fun globe](../img/globe-image.jpg)
 
-And I can refine the image: 
+And I can refine the image:
 
 ![Here's a smaller one](../img/globe-image.jpg){width="50%"}
 
@@ -141,9 +146,9 @@ knitr::include_graphics('../img/globe-image.jpg')
 
 I can also add document breaks with `*****`:
 
-*****
+------------------------------------------------------------------------
 
-# Code 
+# Code
 
 These are teasers for where we are going. If the code doesn't yet make sense that is expected!
 
@@ -157,29 +162,28 @@ All code is run is code snippets. Code snippets can be auto generated with:
 
 or by clicking "insert" and then "R"
 
-***
+------------------------------------------------------------------------
 
-In each code block, you can add cell options that affect the execution and output of executable code blocks. All options start with `#|` and can be  within comments at the top of a block. For example:
+In each code block, you can add cell options that affect the execution and output of executable code blocks. All options start with `#|` and can be within comments at the top of a block. For example:
 
-```r
+``` r
 #| eval: false
 ...
 ```
 
 The following table summarizes which types of output each option **suppresses**:
 
-|       Option      | Run code 	| Show code 	| Output 	| Plots 	| Messages 	| Warnings 	|
-|:-----------------	|:--------:	|:---------:	|:------:	|:-----:	|:--------:	|:--------:	|
-| eval: false      	| X        	|           	| X      	| X     	| X        	| X        	|
-| include: false   	|          	| X         	| X      	| X     	| X        	| X        	|
-| echo: false      	|          	| X         	|        	|       	|          	|          	|
-| results: "hide"  	|          	|           	| X      	|       	|          	|          	|
-| fig.show: "hide" 	|          	|           	|        	| X     	|          	|          	|
-| message: false   	|          	|           	|        	|       	| X        	|          	|
-| warning: false   	|          	|           	|        	|       	|          	| X        	|
+| Option           | Run code | Show code | Output | Plots | Messages | Warnings |
+|:-----------------|:--------:|:---------:|:------:|:-----:|:--------:|:--------:|
+| eval: false      |    X     |           |   X    |   X   |    X     |    X     |
+| include: false   |          |     X     |   X    |   X   |    X     |    X     |
+| echo: false      |          |     X     |        |       |          |          |
+| results: "hide"  |          |           |   X    |       |          |          |
+| fig.show: "hide" |          |           |        |   X   |          |          |
+| message: false   |          |           |        |       |    X     |          |
+| warning: false   |          |           |        |       |          |    X     |
 
-
-:::{.callout-note}
+::: callout-note
 Quarto supports the creation of markdown tables, look at the qmd file on how to generate the above table
 :::
 
@@ -232,7 +236,7 @@ cities  |>
 
 ```{r}
 #| echo: false
-threshold <- 10000
+threshold <- 100000
 
 big_cities <-  cities |> 
   filter(population > threshold)  |> 
@@ -251,7 +255,7 @@ big_cities  |>
   aes(x = lng, y = lat) + 
   geom_point(aes(size = population, color = density)) + 
   scale_color_gradient(low = "blue", high = "red") + 
-  labs(title = "USA Cities Population Stats",
+  labs(title = "USA CitiesPopulation Stats",
        subtitle = paste("Cities bigger then:", 
                         formatC(threshold, format="d", big.mark=","),
                         "people"),
@@ -260,5 +264,3 @@ big_cities  |>
        y = "") + 
   theme_bw()
 ```
-
-
